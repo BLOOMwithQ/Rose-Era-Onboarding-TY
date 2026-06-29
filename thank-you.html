@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | BLOOM with Quadia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --ink: #2A1A2C;
+      --plum: #3A2240;
+      --ink-soft: rgba(42, 26, 44, 0.72);
+      --ink-faint: rgba(42, 26, 44, 0.50);
+      --gold: #A9863F;
+      --gold-soft: rgba(169, 134, 63, 0.40);
+      --rose: #BC8A82;
+      --cream: #F6F1E8;
+      --paper: #FCF9F3;
+      --line: rgba(42, 26, 44, 0.13);
+      --line-soft: rgba(42, 26, 44, 0.08);
+      --shadow: 0 1px 40px rgba(42, 26, 44, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      background:
+        radial-gradient(110% 70% at 88% -5%, rgba(188, 138, 130, 0.16), transparent 55%),
+        radial-gradient(90% 60% at 10% 100%, rgba(169, 134, 63, 0.08), transparent 55%),
+        var(--cream);
+      display: grid;
+      place-items: center;
+      padding: 32px 24px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection { background: rgba(169, 134, 63, 0.22); }
+
+    .card {
+      width: min(680px, 100%);
+      background: var(--paper);
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+      padding: clamp(40px, 7vw, 72px);
+      text-align: center;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin: 0 0 2rem;
+    }
+
+    .brand span { color: var(--rose); font-style: italic; letter-spacing: 0.14em; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 1.3rem;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      line-height: 1.04;
+      font-weight: 400;
+      color: var(--plum);
+      letter-spacing: -0.01em;
+      margin: 0 auto 1.6rem;
+      max-width: 14ch;
+    }
+
+    h1 .accent { color: var(--gold); font-style: italic; }
+
+    .message {
+      max-width: 48ch;
+      margin: 0 auto 1.1rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    .note {
+      max-width: 42ch;
+      margin: 0 auto;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.45;
+      color: var(--plum);
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2.4rem auto;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 32px;
+      border-radius: 2px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .button.primary { background: var(--plum); color: var(--cream); }
+    .button.primary:hover { background: var(--ink); }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--plum);
+      border: 1px solid var(--line);
+    }
+
+    .button.secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer {
+      margin-top: 2.6rem;
+      color: var(--ink-faint);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 560px) {
+      .cta-row { flex-direction: column; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card" aria-labelledby="thank-you-heading">
+    <p class="brand">BLOOM <span>with Quadia</span></p>
+    <span class="eyebrow">Life After Survival &middot; Intake Received</span>
+
+    <h1 id="thank-you-heading">Thank you, and <span class="accent">welcome.</span></h1>
+
+    <p class="message">
+      Your intake has been received. I will read every word with care, and you will hear from me with your next steps within 48 hours.
+    </p>
+
+    <p class="note">
+      For now, take a breath. Your next step does not have to be rushed to be real.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="cta-row">
+      <a class="button primary" href="/">Return to Rose Era</a>
+      <a class="button secondary" href="mailto:hello@bloomwithquadia.com">Send Quadia a note</a>
+    </div>
+
+    <p class="footer">Breathe &middot; Rest &middot; Trust &middot; Bloom</p>
+  </main>
+</body>
+</html>

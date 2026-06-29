@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOOM with Quadia | Life After Survival Intake</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --ink: #2A1A2C;
+      --plum: #3A2240;
+      --ink-soft: rgba(42, 26, 44, 0.72);
+      --ink-faint: rgba(42, 26, 44, 0.50);
+      --gold: #A9863F;
+      --gold-soft: rgba(169, 134, 63, 0.40);
+      --rose: #BC8A82;
+      --cream: #F6F1E8;
+      --paper: #FCF9F3;
+      --white: #FFFFFF;
+      --line: rgba(42, 26, 44, 0.13);
+      --line-soft: rgba(42, 26, 44, 0.08);
+      --shadow: 0 1px 40px rgba(42, 26, 44, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      background:
+        radial-gradient(120% 80% at 90% -5%, rgba(188, 138, 130, 0.12), transparent 55%),
+        var(--cream);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection { background: rgba(169, 134, 63, 0.22); }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      padding: 52px 48px;
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    .hero::after { content: none; }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin: 0 0 14px;
+    }
+
+    .brand-mark { color: var(--rose); font-style: italic; letter-spacing: 0.14em; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: "Inter", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin: 0 0 1.2rem;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 4.6vw, 4rem);
+      line-height: 1.05;
+      font-weight: 400;
+      margin: 0 0 1.1rem;
+      color: var(--plum);
+      letter-spacing: -0.005em;
+      max-width: 16ch;
+    }
+
+    .subtitle {
+      font-size: 1.12rem;
+      line-height: 1.7;
+      max-width: 64ch;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    /* ---------- Scope notice ---------- */
+    .notice {
+      background: var(--paper);
+      border: 1px solid var(--line-soft);
+      border-left: 2px solid var(--gold);
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin: 0 0 26px;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .notice strong { color: var(--plum); font-weight: 600; }
+
+    /* ---------- Form shell ---------- */
+    form {
+      background: transparent;
+      border: none;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    fieldset {
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      padding: 38px 40px 34px;
+      margin: 0 0 22px;
+      background: var(--paper);
+    }
+
+    legend {
+      padding: 0;
+      margin-bottom: 0.4rem;
+      color: var(--plum);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      line-height: 1.1;
+    }
+
+    .section-note {
+      color: var(--ink-faint);
+      margin-top: 0;
+      margin-bottom: 26px;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    label, .label {
+      font-family: "Inter", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--plum);
+      line-height: 1.5;
+    }
+
+    .hint {
+      font-family: "Inter", sans-serif;
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      font-weight: 400;
+      margin-top: -2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 14px 15px;
+      font-size: 1rem;
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      font-family: "Inter", sans-serif;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(169, 134, 63, 0.12);
+    }
+
+    .check-group,
+    .radio-group {
+      display: grid;
+      gap: 10px;
+      margin: 8px 0 18px;
+    }
+
+    .check-group .label,
+    .radio-group .label {
+      margin-bottom: 4px;
+    }
+
+    .check-row,
+    .radio-row {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: var(--white);
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.96rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      cursor: pointer;
+      transition: border-color 0.25s ease;
+    }
+
+    .check-row:hover,
+    .radio-row:hover { border-color: var(--gold-soft); }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-top: 3px;
+      width: 17px;
+      height: 17px;
+      accent-color: var(--plum);
+    }
+
+    /* ---------- Baseline scale ---------- */
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.96rem;
+    }
+
+    .scale-table th,
+    .scale-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 8px;
+      vertical-align: middle;
+    }
+
+    .scale-table tr:first-child th { border-top: 1px solid var(--line); }
+
+    .scale-table th {
+      text-align: left;
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .scale-table td { color: var(--ink-soft); }
+
+    .scale-table select {
+      max-width: 96px;
+      padding: 11px;
+    }
+
+    .score-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 26px 28px;
+      margin: 22px 0 6px;
+    }
+
+    .score-card h3 {
+      margin: 0 0 14px;
+      color: var(--plum);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .score-line {
+      font-family: "Inter", sans-serif;
+      font-size: 0.96rem;
+      color: var(--ink-soft);
+      margin: 9px 0;
+    }
+
+    .score-line strong { color: var(--plum); font-weight: 600; }
+
+    #totalScore,
+    #averageScore {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    button {
+      border: none;
+      border-radius: 2px;
+      padding: 15px 30px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .primary {
+      background: var(--plum);
+      color: var(--cream);
+    }
+
+    .primary:hover { background: var(--ink); }
+
+    .secondary {
+      background: transparent;
+      color: var(--plum);
+      border: 1px solid var(--line);
+    }
+
+    .secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer-note {
+      color: var(--ink-faint);
+      font-size: 0.84rem;
+      margin-top: 18px;
+      font-family: "Inter", sans-serif;
+    }
+
+    .required { color: var(--rose); font-weight: 600; }
+
+    /* ---------- Quote ---------- */
+    .quote-box {
+      background: linear-gradient(165deg, var(--plum), var(--ink));
+      color: #F3E7DF;
+      border-radius: 4px;
+      padding: 30px 32px;
+      margin: 10px 0 26px;
+    }
+
+    .quote-box p {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.45;
+      color: #FBF3EC;
+    }
+
+    .quote-box em { color: var(--rose); font-style: italic; }
+
+    @media (max-width: 760px) {
+      .page { padding: 32px 14px 64px; }
+      .hero { padding: 34px 22px; border-radius: 4px; }
+      fieldset { padding: 26px 20px 22px; }
+      .grid { grid-template-columns: 1fr; }
+
+      .scale-table,
+      .scale-table thead,
+      .scale-table tbody,
+      .scale-table th,
+      .scale-table td,
+      .scale-table tr { display: block; }
+
+      .scale-table thead { display: none; }
+
+      .scale-table tr {
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        margin-bottom: 12px;
+        padding: 14px;
+        background: var(--white);
+      }
+
+      .scale-table td { border: none; padding: 6px 0; }
+
+      .scale-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .scale-table select { max-width: 100%; }
+
+      button { width: 100%; }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .hero, fieldset, .score-card { box-shadow: none; }
+      .btn-row { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="brand">BLOOM <span class="brand-mark">with Quadia</span></p>
+      <p class="eyebrow">Life After Survival</p>
+      <h1>Welcome to BLOOM</h1>
+      <p class="subtitle">
+        For years, you may have been the strong one. The caretaker. The fixer. The woman everyone could count on.
+        This intake helps us understand where you are now, what season you are entering, and what life after survival could look like for you.
+      </p>
+    </section>
+
+    <div class="notice">
+      <strong>Scope Note:</strong> BLOOM with Quadia is a coaching and education experience. It is forward-focused and designed to support self-awareness,
+      decision-making, rest practices, identity clarity, and aligned action. It is not therapy, diagnosis, crisis intervention,
+      medical advice, trauma treatment, or mental health care.
+    </div>
+
+    <form id="clientForm" name="client-onboarding" method="POST" data-netlify="true" action="/thank-you">
+      <input type="hidden" name="form-name" value="client-onboarding" />
+
+      <fieldset>
+        <legend>1. Client Information</legend>
+        <p class="section-note">Basic details for intake, scheduling, and communication.</p>
+
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input id="fullName" name="full_name" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="preferredName">Preferred Name</label>
+            <input id="preferredName" name="preferred_name" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="required">*</span></label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+
+          <div class="field">
+            <label for="timezone">Time Zone</label>
+            <input id="timezone" name="timezone" type="text" placeholder="Example: Eastern Time" />
+          </div>
+
+          <div class="field">
+            <label for="startDate">Preferred Start Date</label>
+            <input id="startDate" name="preferred_start_date" type="date" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="referral">How did you hear about BLOOM with Quadia?</label>
+          <textarea id="referral" name="referral_source" placeholder="Instagram, referral, website, prior BLOOM content, the Real Rest guide, etc."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Your Life After Survival Story</legend>
+        <p class="section-note">This section helps us understand the season you are in and what brought you here now.</p>
+
+        <div class="field">
+          <label for="currentSeason">Describe the season of life, family, work, business, body, or identity you are currently in. <span class="required">*</span></label>
+          <textarea id="currentSeason" name="current_season" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="whyNow">What made you realize it was time to create more room for yourself? <span class="required">*</span></label>
+          <textarea id="whyNow" name="why_now" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="survivalModeArea">What part of your life feels like it has been running on survival mode?</label>
+          <textarea id="survivalModeArea" name="life_area_running_on_survival_mode"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="desiredChange">If BLOOM were successful, what would feel different in your life six weeks from now?</label>
+          <textarea id="desiredChange" name="desired_change_six_weeks"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Your Rose Era</legend>
+        <p class="section-note">This clarifies where you are in the transition from carrying everything to making room for yourself again.</p>
+
+        <div class="radio-group">
+          <p class="label">Which statement feels most true today?</p>
+          <label class="radio-row"><input type="radio" name="client_stage" value="Ready to reconnect with myself" /> I've spent years taking care of everyone else and I'm ready to reconnect with myself.</label>
+          <label class="radio-row"><input type="radio" name="client_stage" value="Successful on paper but disconnected" /> I'm successful on paper but I feel disconnected from my own life.</label>
+          <label class="radio-row"><input type="radio" name="client_stage" value="Entering a new chapter" /> I'm entering a new chapter and want to become intentional about how I live it.</label>
+          <label class="radio-row"><input type="radio" name="client_stage" value="Exhausted and needing a different way" /> I'm exhausted and need support creating a different way forward.</label>
+          <label class="radio-row"><input type="radio" name="client_stage" value="Acute crisis" /> I am in acute crisis and need immediate emotional or mental health support.</label>
+        </div>
+
+        <div class="check-group">
+          <p class="label">Which areas are most relevant to your BLOOM goals? Select all that apply.</p>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Getting back to myself" /> Getting back to myself underneath the roles and responsibilities</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Real rest" /> Real rest, relief, and learning how to pause without guilt</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Mental overload" /> Mental overload, decision fatigue, or too many moving pieces</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Leaving survival pattern" /> Leaving a survival pattern and practicing a different behavior</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Body signals" /> Listening to my body and honoring what it needs</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Boundaries" /> Boundaries, over-functioning, overexplaining, or emotional labor</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Confidence and visibility" /> Confidence, visibility, style, or feeling beautiful in my life again</label>
+          <label class="check-row"><input type="checkbox" name="goals[]" value="Joy and enjoyment" /> Joy, enjoyment, softer living, and creating a life that includes me</label>
+        </div>
+
+        <div class="field">
+          <label for="notAGoodFit">What would make this BLOOM experience unsuccessful for you?</label>
+          <textarea id="notAGoodFit" name="what_would_make_this_unsuccessful"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Leaving Survival Behind</legend>
+        <p class="section-note">This section begins the first BLOOM asset: your Survival Pattern Map.</p>
+
+        <div class="field">
+          <label for="pressurePattern">When you are under pressure, what do you tend to do?</label>
+          <textarea id="pressurePattern" name="pressure_pattern" placeholder="Examples: overwork, withdraw, overexplain, people-please, freeze, control, scroll, avoid, perform strength."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="bodySignals">What body signals tell you that you are activated, overloaded, or bracing?</label>
+          <textarea id="bodySignals" name="body_signals" placeholder="Examples: tight chest, shallow breath, clenched jaw, stomach drop, heat, numbness, fatigue, racing thoughts."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="oldPattern">What are you no longer willing to carry into your next chapter?</label>
+          <textarea id="oldPattern" name="no_longer_willing_to_carry"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="patternCost">What has this pattern cost you?</label>
+          <textarea id="patternCost" name="pattern_cost"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Life After Survival Baseline</legend>
+        <p class="section-note">
+          Rate each statement from 1–10. This is not a grade. It establishes a starting point so progress can be measured responsibly.
+        </p>
+
+        <table class="scale-table">
+          <thead>
+            <tr>
+              <th>Statement</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Statement">I feel connected to myself.</td>
+              <td data-label="Rating"><select class="score" name="baseline_connected_to_self" required><option value="">Select</option></select></td>
+            </tr>
+            <tr>
+              <td data-label="Statement">I allow myself to rest without guilt.</td>
+              <td data-label="Rating"><select class="score" name="baseline_rest_without_guilt" required><option value="">Select</option></select></td>
+            </tr>
+            <tr>
+              <td data-label="Statement">I trust my decisions.</td>
+              <td data-label="Rating"><select class="score" name="baseline_decision_trust" required><option value="">Select</option></select></td>
+            </tr>
+            <tr>
+              <td data-label="Statement">I listen to my body and honor what it needs.</td>
+              <td data-label="Rating"><select class="score" name="baseline_body_honoring" required><option value="">Select</option></select></td>
+            </tr>
+            <tr>
+              <td data-label="Statement">I create time for things that bring me joy.</td>
+              <td data-label="Rating"><select class="score" name="baseline_joy_time" required><option value="">Select</option></select></td>
+            </tr>
+            <tr>
+              <td data-label="Statement">I set boundaries without feeling responsible for everyone’s reaction.</td>
+              <td data-label="Rating"><select class="score" name="baseline_boundaries_without_responsibility" required><option value="">Select</option></select></td>
+            </tr>
+            <tr>
+              <td data-label="Statement">I know what I want this next chapter of my life to look like.</td>
+              <td data-label="Rating"><select class="score" name="baseline_next_chapter_clarity" required><option value="">Select</option></select></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="score-card" aria-live="polite">
+          <h3>Baseline Snapshot</h3>
+          <p class="score-line"><strong>Total Score:</strong> <span id="totalScore">0</span> / 70</p>
+          <p class="score-line"><strong>Average:</strong> <span id="averageScore">0.0</span> / 10</p>
+          <p class="score-line"><strong>Interpretation:</strong> <span id="scoreInterpretation">Complete all ratings to view your baseline snapshot.</span></p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Before We Begin</legend>
+        <p class="section-note">
+          These acknowledgments protect the integrity of the BLOOM container.
+        </p>
+
+        <div class="check-group">
+          <label class="check-row"><input type="checkbox" name="acknowledgments[]" value="Coaching not therapy" required /> I understand BLOOM with Quadia is coaching and education, not therapy, diagnosis, crisis intervention, or mental health treatment.</label>
+          <label class="check-row"><input type="checkbox" name="acknowledgments[]" value="Forward focused" required /> I understand this is a forward-focused model designed for self-awareness, decision-making, rest practices, identity clarity, and aligned action.</label>
+          <label class="check-row"><input type="checkbox" name="acknowledgments[]" value="Seek clinical support if needed" required /> I understand that if I need mental health treatment, trauma processing, diagnosis, crisis support, or medical advice, I should work with an appropriately licensed professional.</label>
+          <label class="check-row"><input type="checkbox" name="acknowledgments[]" value="Participation responsibility" required /> I understand that results depend on my participation, reflection, and practice between sessions.</label>
+          <label class="check-row"><input type="checkbox" name="acknowledgments[]" value="Communication boundaries" required /> I understand that communication occurs within the agreed session and check-in boundaries, not through unlimited access.</label>
+          <label class="check-row"><input type="checkbox" name="acknowledgments[]" value="Confidentiality" required /> Both parties agree that information shared during calls, emails, and consultations is private and proprietary. Neither party shall disclose or use this confidential information outside of our professional engagement.</label>
+        </div>
+
+        <div class="field">
+          <label for="supportSystems">Do you currently have support systems in place? If yes, name them broadly.</label>
+          <textarea id="supportSystems" name="support_systems" placeholder="Examples: therapist, doctor, partner, faith community, friend, mentor, support group. Do not include private medical details unless you choose to."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="questions">What questions do you have before beginning BLOOM?</label>
+          <textarea id="questions" name="questions_before_beginning"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Your Next Chapter</legend>
+        <p class="section-note">Final reflection and confirmation before submission.</p>
+
+        <div class="quote-box">
+          <p>Many women become so busy managing life that they forget they are here to enjoy it too. <em>BLOOM helps you create a life that includes you.</em></p>
+        </div>
+
+        <div class="field">
+          <label for="becomingWoman">Complete this sentence: The woman I am becoming is...</label>
+          <textarea id="becomingWoman" name="the_woman_i_am_becoming_is"></textarea>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="signature">Typed Signature <span class="required">*</span></label>
+            <input id="signature" name="typed_signature" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="signatureDate">Date <span class="required">*</span></label>
+            <input id="signatureDate" name="signature_date" type="date" required />
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="secondary" onclick="window.print()">Print / Save as PDF</button>
+          <button type="submit" class="primary">Submit BLOOM Intake</button>
+        </div>
+        <p class="footer-note">Your responses are sent privately to Quadia and are held in confidence.</p>
+      </fieldset>
+    </form>
+  </main>
+
+  <script>
+    const scoreSelects = document.querySelectorAll("select.score");
+    const totalScoreEl = document.getElementById("totalScore");
+    const averageScoreEl = document.getElementById("averageScore");
+    const interpretationEl = document.getElementById("scoreInterpretation");
+
+    scoreSelects.forEach(select => {
+      for (let i = 1; i <= 10; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        select.appendChild(option);
+      }
+      select.addEventListener("change", updateScore);
+    });
+
+    function updateScore() {
+      let total = 0;
+      let completed = 0;
+
+      scoreSelects.forEach(select => {
+        if (select.value) {
+          total += Number(select.value);
+          completed++;
+        }
+      });
+
+      totalScoreEl.textContent = total;
+      averageScoreEl.textContent = completed ? (total / completed).toFixed(1) : "0.0";
+
+      if (completed < scoreSelects.length) {
+        interpretationEl.textContent = "Complete all ratings to view your baseline snapshot.";
+        return;
+      }
+
+      const average = total / scoreSelects.length;
+
+      if (average <= 3.9) {
+        interpretationEl.textContent = "Still carrying survival: begin with relief, steadiness, and simple practices before expanding into deeper identity work.";
+      } else if (average <= 6.9) {
+        interpretationEl.textContent = "Entering transition: awareness is present, and BLOOM can support structure, practice, and a clearer next chapter.";
+      } else {
+        interpretationEl.textContent = "Building life after survival: you appear ready to deepen consistency, self-trust, joy, and integration.";
+      }
+    }
+
+    const signatureDate = document.getElementById("signatureDate");
+    if (signatureDate && !signatureDate.value) {
+      signatureDate.valueAsDate = new Date();
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('clientForm');
+      const storageKey = 'bloom_life_after_survival_intake_draft';
+
+      if (!form) return;
+
+      const savedData = localStorage.getItem(storageKey);
+
+      if (savedData) {
+        try {
+          const data = JSON.parse(savedData);
+
+          Object.keys(data).forEach(name => {
+            const fields = form.querySelectorAll(`[name="${CSS.escape(name)}"]`);
+
+            fields.forEach(field => {
+              if (field.type === 'checkbox') {
+                field.checked = Array.isArray(data[name])
+                  ? data[name].includes(field.value)
+                  : Boolean(data[name]);
+              } else if (field.type === 'radio') {
+                field.checked = field.value === data[name];
+              } else {
+                field.value = data[name];
+              }
+            });
+          });
+
+          if (typeof updateScore === 'function') updateScore();
+        } catch (error) {
+          console.warn('BLOOM draft could not be restored:', error);
+        }
+      }
+
+      form.addEventListener('input', saveDraft);
+      form.addEventListener('change', saveDraft);
+
+      function saveDraft() {
+        const data = {};
+        const fields = form.querySelectorAll('input, textarea, select');
+
+        fields.forEach(field => {
+          if (!field.name || field.name === 'form-name') return;
+
+          if (field.type === 'checkbox') {
+            if (!data[field.name]) data[field.name] = [];
+            if (field.checked) data[field.name].push(field.value);
+          } else if (field.type === 'radio') {
+            if (field.checked) data[field.name] = field.value;
+          } else {
+            data[field.name] = field.value;
+          }
+        });
+
+        localStorage.setItem(storageKey, JSON.stringify(data));
+      }
+
+      form.addEventListener('submit', () => {
+        localStorage.removeItem(storageKey);
+      });
+    });
+  </script>
+</body>
+</html>
